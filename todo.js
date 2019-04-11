@@ -8,9 +8,9 @@ xhttp.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
     // console.log("2");
     var todos = JSON.parse(this.responseText);
-    // console.log("Working!");
     for (var i=0; i < todos.length; i++) {
       displayTodo(todos[i]);
+      console.log(todos[i]);
     }
     } else if (this.readystate == 4) {
       // console.log("3");
@@ -54,7 +54,7 @@ document.getElementById("submit-button").addEventListener("click", function (eve
 function displayTodo(TodoContent) {
   var todo = document.createElement("article");
   todo.setAttribute("id", TodoContent.id);
-  
+
   var comp = document.createElement("button");
   comp.classList.add("completed-button");
   comp.innerHTML = "&#10004";
@@ -68,6 +68,9 @@ function displayTodo(TodoContent) {
   text.innerText = TodoContent.text;
   todo.appendChild(text);
   // console.log(text);
+  if (TodoContent.completed==true) {
+    text.parentNode.classList.add("completed-text");
+  }
 
   var del = document.createElement("button");
   del.classList.add("close");
@@ -93,12 +96,10 @@ function completedTodo(event) {
 
   var wtf = new XMLHttpRequest();
 
-
-
   wtf.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       //console.log(this.responsetext);
-      // something here to make the todo display differently 
+      event.target.parentNode.classList.add("completed-text");
     } else if (this.readystate == 4) {
       console.log(this.responsetext);
     }
@@ -110,6 +111,20 @@ function completedTodo(event) {
   wtf.send(JSON.stringify(data));
 }
 // Delete
-function erase () {
+function erase (event) {
+  var todoID = event.target.parentNode.id;
+  var ftw = new XMLHttpRequest();
 
+  ftw.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      event.target.parentNode.remove();
+    } else if (this.readystate == 4) {
+      console.log(this.responsetext);
+    }
+  };
+
+  ftw.open("DELETE", "https://api.kraigh.net/todos/" + todoID, true);
+  ftw.setRequestHeader("Content-type", "application/json");
+  ftw.setRequestHeader("x-api-key", api);
+  ftw.send();
 }
