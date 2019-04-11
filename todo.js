@@ -53,7 +53,8 @@ document.getElementById("submit-button").addEventListener("click", function (eve
 
 function displayTodo(TodoContent) {
   var todo = document.createElement("article");
-
+  todo.setAttribute("id", TodoContent.id);
+  
   var comp = document.createElement("button");
   comp.classList.add("completed-button");
   comp.innerHTML = "&#10004";
@@ -96,7 +97,8 @@ function completedTodo(event) {
 
   wtf.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      console.log(this.responsetext);
+      //console.log(this.responsetext);
+      // something here to make the todo display differently 
     } else if (this.readystate == 4) {
       console.log(this.responsetext);
     }
