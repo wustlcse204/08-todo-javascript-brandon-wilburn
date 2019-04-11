@@ -37,6 +37,21 @@ h2, h3 {
   float: right;
 }
 
+@media only screen and (max-width: 750px) {
+	#nav {
+    width: 340px;
+  }
+
+  h1 {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  h2,h3 {
+    font-size: 16px;
+  }
+}
+
 #todo-list {
   /* background-color: #9E9E9E; */
   /* or -165 */
@@ -45,6 +60,15 @@ h2, h3 {
   max-width: 700px;
   margin: 45px auto 0 auto;
   overflow-y: scroll;
+}
+
+@media only screen and (max-width: 750px) {
+	#todo-list {
+    width: 360px;
+  }
+  body {
+    font-size:
+  }
 }
 
 #todo-list::-webkit-scrollbar {
@@ -60,8 +84,18 @@ h2, h3 {
   transform: translateX(-50%);
   max-width: 700px;
   width: 70%;
+  min-width: 360px;
   background-color: #EDEDED;
   border: 1px solid black;
+}
+
+@media only screen and (max-width: 750px) {
+	#submit {
+    width: 360px;
+  }
+  textarea {
+    font-size: 16px;
+  }
 }
 
 form textarea {
@@ -134,10 +168,20 @@ article:hover .close {
   transition: text-shadow .2s ease-in-out, color .2s ease-in-out, opacity .2s ease-in-out;
 }
 
+@media only screen and (max-width: 750px) {
+	.completed-button {
+    opacity: 1;
+  }
+
+  .close {
+    opacity: 1;
+  }
+}
+
 .todo-list-text {
   display: inline-block;
   text-decoration: inherit;
-  width: 80%;
+  width: 75%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
