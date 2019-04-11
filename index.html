@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="style.css" type="text/css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="nav">
+      <h1>TODAY IS THE DAY</h1>
+      <div id="date-container">
+        <h2 id="date"></h2>
+        <h2 id="time"></h2>
+      </div>
+    </div>
+
+    <div id="todo-list">
+      <!-- <article>
+        <button class="completed-button">&#10004;</button>
+        <p class="todo-list-text">This is where the text will appear</p>
+        <button class="close">&#10008;<button>
+      </article> -->
+    </div>
+
+    <div id=submit>
+      <form>
+        <input type="text" name="event" id="addTodo"
+        placeholder="What ya gotta do?" onfocus="this.placeholder=''"
+        onblur="this.placeholder='What ya gotta do?'"></input>
+        <!-- <input type="date" name="date"
+        placeholder="What day ya gotta do it?" onfocus="this.placeholder=''"
+        onblur="this.placeholder = 'What day ya gotta do it?'">
+        <input type="text" name="time"
+        placeholder="What time ya gotta do it?" onfocus="this.placeholder=''"
+        onblur="this.placeholder = 'What time ya gotta do it?'"> -->
+        <button id="submit-button"><i class="far fa-calendar-plus"></i></button>
+      </form>
+    </div>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="date.js"></script>
+    <script src="todo.js"></script>
+  </body>
+</html>
