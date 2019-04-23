@@ -182,15 +182,19 @@ article:hover .close {
 @media only screen and (max-width: 750px) {
 	.completed-button {
     opacity: 1;
+    font-size: 9px;
   }
 
   .close {
     opacity: 1;
+    font-size: 9px;
   }
 
   .todo-list-text {
     width: 50%;
+    font-size: 9px;
   }
+
 }
 
 button:hover {
